@@ -103,11 +103,6 @@
 	var timeOffset = new Date().getTimezoneOffset() * 60000;
 	var currentTime = new Date().getTime() + userOffset + timeOffset;
 	var today = new Date(currentTime);
-	 if (h < 8) {
-		 document.getElementById('clockWrapper').style.background = "black"
-	 } else {
-		 document.getElementById('clockWrapper').style.background = "white"
-	 }
 	  
     var h = today.getHours();
     var m = today.getMinutes();
@@ -121,6 +116,15 @@
     document.getElementById("min").style.transform = 'translate(150px,20px) rotate(' + ma + 'deg)'
     document.getElementById("hour").style.transform = 'translate(150px,50px) rotate(' + ha + 'deg)'
     document.getElementById("timeString").innerHTML = get2digit(h) + " : " + get2digit(m) + " : " + get2digit(s);
+	  
+	  if (h < 6) {
+		 document.getElementById('clockWrapper').style.background = "black"
+	 } 
+	  if (h > 18) {
+		 document.getElementById('clockWrapper').style.background = "grey"
+	  } else {
+		 document.getElementById('clockWrapper').style.background = "white"
+	  }
   }
 	
   function start(){
